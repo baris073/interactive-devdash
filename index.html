@@ -28,12 +28,12 @@
             </div>
 
             <div class="bg-[#2b2a2a] rounded-lg p-4 border-[#2044dd] border-2 shadow-lg flex-1"> 
-                <p class="text-gray-400 text-sm">Addis Ababa</p>
+                <p class="text-gray-400 text-sm" id="cityName">የአየር ንብረት በመጫን ላይ...</p>
                 <div class="flex gap-5 items-center mt-2">
-                    <img src="/assets/sunny.png" alt="sun" class="w-[50px] h-[50px]">
+                    <img src="/assets/sunny.png" alt="sun" class="w-[50px] h-[50px]" id="icon">
                     <div>
-                        <h3 class="text-white text-xl font-bold">25 <span>&#176;c</span></h3>
-                        <h3 class="text-gray-300 text-sm">Sunny</h3>
+                        <h3 class="text-white text-xl font-bold" id="temperature">-- <span>&#176;c</span></h3>
+                        <h3 class="text-gray-300 text-sm" id="weatherStatus">--</h3>
                     </div>
                 </div>
                 
@@ -41,19 +41,19 @@
                 
                 <div class="flex justify-between mt-4 text-center">
                     <div>
-                        <h4 class="text-gray-400 text-xs font-bold">Tue</h4>
-                        <img class="w-[25px] mx-auto my-1" src="/assets/sunny.png" alt="sunny">
-                        <p class="text-white text-xs">25&#176;c</p>
+                        <h4 class="text-gray-400 text-xs font-bold" id="tomorrow">--</h4>
+                        <img class="w-[25px] mx-auto my-1" id="tomorrowIcon" src="/assets/sunny.png" alt="sunny">
+                        <p class="text-white text-xs" id="tomorrowTemp">--&#176;c</p>
                     </div>
                     <div>
-                        <h4 class="text-gray-400 text-xs font-bold">Wed</h4>
-                        <img class="w-[25px] mx-auto my-1" src="/assets/cloud.png" alt="cloud">
-                        <p class="text-white text-xs">23&#176;c</p>
+                        <h4 class="text-gray-400 text-xs font-bold" id="day2">--</h4>
+                        <img class="w-[25px] mx-auto my-1" id="day2Icon" src="/assets/cloud.png" alt="cloud">
+                        <p class="text-white text-xs" id="day2Temp">--&#176;c</p>
                     </div>
                     <div>
-                        <h4 class="text-gray-400 text-xs font-bold">Thu</h4>
-                        <img class="w-[25px] mx-auto my-1" src="/assets/sunny.png" alt="sunny">
-                        <p class="text-white text-xs">26&#176;c</p>
+                        <h4 class="text-gray-400 text-xs font-bold" id="day3">--</h4>
+                        <img class="w-[25px] mx-auto my-1" id="day3Icon" src="/assets/sunny.png" alt="sunny">
+                        <p class="text-white text-xs" id="day3Temp">--&#176;c</p>
                     </div>
                 </div>
             </div>
@@ -64,8 +64,11 @@
             <h2 class="text-gray-400 text-sm mb-4">የዕለቱ ተግባራት</h2>
             
             <div class="flex mt-2">
-                <input type="text" placeholder="አዲስ ተግባር አስገባ . . ." class="bg-gray-800 text-white border border-gray-700 px-3 py-2 rounded-l-lg focus:outline-none flex-1 max-w-[300px]">
-                <button class="bg-[#d8d808] hover:bg-yellow-500 text-gray-900 px-4 font-bold rounded-r-lg transition-colors">+</button>
+                <input type="text" placeholder="አዲስ ተግባር አስገባ . . ." id="todo" class="bg-gray-800 text-white border border-gray-700 px-3 py-2 rounded-l-lg focus:outline-none flex-1 max-w-[300px]">
+                <ul id="todo-list" class="flex-1 ml-4 overflow-y-auto max-h-[200px]">
+
+                </ul>
+                <button class="bg-[#d8d808] hover:bg-yellow-500 text-gray-900 px-4 font-bold rounded-r-lg transition-colors" onclick="submit()">+</button>
             </div>
             
             <div class="mt-4 flex-1 overflow-y-auto"></div>
@@ -75,67 +78,170 @@
             
             <article class="bg-[#2b2a2a]/50 border-[#2044dd] border-2 rounded-lg p-4 shadow-lg flex-1 min-h-[180px]">
                 <h3 class="text-white text-lg font-bold">የአይቲ ጥቅሶች </h3>
-                <div class="bg-[#08dccb] w-[60px] h-[60px] rounded-full mt-4 flex items-center justify-center">
-                    <img src="/assets/load.png" alt="load" class="w-[25px]">
+                <div class=" w-[60px] h-[60px] rounded-full mt-4 flex items-center justify-center">
+                    
                 </div>
-                <div class="">
-
-                </div>
+                <p id="Tech Quotes" class="text-[#2044dd]"></p>
             </article>
 
             <article class="bg-[#2b2a2a]/50 border-[#2044dd] border-2 rounded-lg p-4 shadow-lg flex-1 min-h-[180px]">
                 <div>
-                      <h3 class="text-white text-[12px] font-bold p-2">GitHub Repo:<span class="text-blue-500"> Interactive DevDash</span></h3>
-                    </div>
+                      <h3 class="text-white text-[12px] font-bold p-2" id="github_repo">GitHub Repo:<span class="text-blue-500"> Interactive DevDash</span></h3>
+                </div>
                 <div class="flex justify-between p-2">
-                        <div>
-                        <h3 class="text-white font-bold">stars</h3>
-                        <img src="/assets/star.png" alt="star" class="w-[20px] items-center"><span class="text-white">15</span>
-                      </div>
-                      <div>
+                    <div>
+                        <h3 class="text-white font-bold" >stars</h3>
+                        <img src="/assets/star.png" alt="star" class="w-[20px] items-center"><span class="text-white" id="starsCount">15</span>
+                    </div>
+                    <div>
                         <h3 class="text-white font-bold">forks</h3>
-                        <img src="/assets/fork.png" alt="fork" class="w-[20px]"><span class="text-white">4</span>
-                      </div>
-                      <div>
+                        <img src="/assets/fork.png" alt="fork" class="w-[20px]"><span class="text-white" id="forksCount">4</span>
+                    </div>
+                    <div>
                         <h3 class="text-white font-bold">watchers</h3>
-                        <img src="/assets/eye.png" alt="eye" class="w-[20px]"><span class="text-white">8</span>
-                      </div>
+                        <img src="/assets/eye.png" alt="eye" class="w-[20px]"><span class="text-white" id="watchersCount">8</span>
+                    </div>
+                </div>
             </article>
             
         </div>
 
     </div>
-<script>
+
+    <script>
     const oclock = document.getElementById('oclock');
 
     function showTime(){
-    
-    setInterval(() => {
-        const d = new Date();
-        const hours =d.getHours();
-        const minutes =String(d.getMinutes()).padStart(2, '0');
-        const seconds =String(d.getSeconds()).padStart(2, '0');
-        const periodhour = hours >= 12 ? 'PM' : 'AM';
-        const hour12 = hours % 12 || 12;
-        const formattedTime = `${hour12}:${minutes}:${seconds} ${periodhour}`;
-        
-        oclock.textContent = formattedTime;
-    }, 1000);
-    
-
+        setInterval(() => {
+            const d = new Date();
+            const hours = d.getHours();
+            const minutes = String(d.getMinutes()).padStart(2, '0');
+            const seconds = String(d.getSeconds()).padStart(2, '0');
+            const periodhour = hours >= 12 ? 'PM' : 'AM';
+            const hour12 = hours % 12 || 12;
+            const formattedTime = `${hour12}:${minutes}:${seconds} ${periodhour}`;
+            
+            oclock.textContent = formattedTime;
+        }, 1000);
     }
     showTime();
+
     const apikey = '530409663dfa413099b175303262705';
     const city = 'Addis Ababa';
-    const apiurl =`https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${city}`;
+    const apiurl = `https://api.weatherapi.com/v1/forecast.json?key=${apikey}&q=${city}&days=3`;
+
     fetch(apiurl)
-    .then(response => response.json()) // የመጣውን መረጃ ወደ JSON መቀየር
-    .then(data => {
-        console.log(data); // ሙሉውን የአየር ንብረት መረጃ በኮንሶል ማየት ትችላለህ
+    .then(response => {
+        if(!response.ok){
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
     })
-    .catch(error => console.log("ስህተት አጋጥሟል:", error));
-   
+    .then(data => {
+        // 1. የአሁኑን (የዛሬውን) መረጃ መተካት
+        const cityName = document.getElementById('cityName');
+        const temperature = document.getElementById('temperature');
+        const weatherStatus = document.getElementById('weatherStatus');
+        const icon = document.getElementById('icon');
+
+        cityName.textContent = data.location.name;
+        temperature.innerHTML = `${Math.round(data.current.temp_c)} <span>&#176;c</span>`;
+        weatherStatus.textContent = data.current.condition.text;
+        icon.src = `https:${data.current.condition.icon}`;
+
+        // 2. የተነበዩትን የቀናት መረጃዎች በተከታታይ ማውጣት 💡
+        const forecastList = data.forecast.forecastday;
+
+        // ተግባርን ለብቻው ፈጥረን ቀኑን ወደ ስም የምንቀይርበት ረዳት ኮድ
+        function getDayName(dateString) {
+            const dateObj = new Date(dateString);
+            return dateObj.toLocaleDateString('en-US', { weekday: 'short' });
+        }
+
+        // --- ቀን 1 (ነገ) ---
+        document.getElementById('tomorrow').textContent = getDayName(forecastList[0].date);
+        document.getElementById('tomorrowTemp').innerHTML = `${Math.round(forecastList[0].day.avgtemp_c)}&#176;c`;
+        document.getElementById('tomorrowIcon').src = `https:${forecastList[0].day.condition.icon}`;
+
+        // --- ቀን 2 (ከነገ በስቲያ) ---
+        document.getElementById('day2').textContent = getDayName(forecastList[1].date);
+        document.getElementById('day2Temp').innerHTML = `${Math.round(forecastList[1].day.avgtemp_c)}&#176;c`;
+        document.getElementById('day2Icon').src = `https:${forecastList[1].day.condition.icon}`;
+
+        // --- ቀን 3 (ከሶስት ቀን በኋላ) ---
+        document.getElementById('day3').textContent = getDayName(forecastList[2].date);
+        document.getElementById('day3Temp').innerHTML = `${Math.round(forecastList[2].day.avgtemp_c)}&#176;c`;
+        document.getElementById('day3Icon').src = `https:${forecastList[2].day.condition.icon}`;
+    })
+    .catch(error => {
+        console.error('Error fetching weather data:', error);
+        document.getElementById('cityName').textContent = 'Unable to fetch weather data';
+    });
+
+    function submit(){
+        const todoInput = document.getElementById('todo');
+        const todoList = document.getElementById('todo-list');
+        const taskText = todoInput.value.trim();
+
+        if(taskText === ''){
+            alert('Please enter a task!');
+            return;
+        }
+
+        const listItem = document.createElement('li');
+        listItem.textContent = taskText;
+        listItem.className = 'bg-gray-800 text-white px-3 py-2 rounded-lg mt-2 flex justify-between items-center';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'x';
+        deleteBtn.className = 'bg-red-500 hover:bg-red-700 text-white px-2 rounded-full transition-colors';
+        deleteBtn.onclick = () => {
+            todoList.removeChild(listItem);
+        };
+
+        listItem.appendChild(deleteBtn);
+        todoList.appendChild(listItem);
+        todoInput.value = '';
+    }
+    const techQuotes = document.getElementById('Tech Quotes');
+    const quotes = [
+        "Code is like humor. When you have to explain it, it’s bad. - Cory House",
+        "First, solve the problem. Then, write the code. - John Johnson",
+        "Experience is the name everyone gives to their mistakes. - Oscar Wilde",
+        "In order to be irreplaceable, one must always be different. - Coco Chanel",
+        "Java is to JavaScript what car is to Carpet. - Chris Heilmann",
+        "Knowledge is power. - Francis Bacon",
+        "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code. - Dan Salomon"
+    ];
+    let quoteIndex = 0;
+    setInterval(() => {
+        techQuotes.textContent = quotes[quoteIndex];
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+    }, 5000);
+
+    // 1. የ GitHub አካውንትህን ስም እና የሪፖዚተሪህን ስም እዚህ አስገባ
+const githubUser = "Baris073"; // ለምሳሌ 'yonas'
+const repoName = "interactive-devdash"; // የሪፖዚተሪህ ስም
+
+const githubApiUrl = `https://api.github.com/repos/${githubUser}/${repoName}`;
+
+fetch(githubApiUrl)
+.then(response => {
+    if (!response.ok) {
+        throw new Error('GitHub API መረጃ ማምጣት አልተቻለም');
+    }
+    return response.json();
+})
+.then(repoData => {
+    // 2. ከ GitHub የመጡትን የቀጥታ ቁጥሮች በ HTML ላይ መተካት
+    document.getElementById('starsCount').textContent = repoData.stargazers_count;
+    document.getElementById('forksCount').textContent = repoData.forks_count;
+    document.getElementById('watchersCount').textContent = repoData.subscribers_count;
+})
+.catch(error => {
+    console.error('Error fetching GitHub data:', error);
+    // ስህተት ካለ የነበሩትን መደበኛ ቁጥሮች እንዳሉ ይተዋቸዋል
+});
     </script>
-</script>
 </body>
 </html>
